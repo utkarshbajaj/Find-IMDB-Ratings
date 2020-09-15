@@ -28,6 +28,3 @@ CSV File:
 ![Screenshot 2020-09-15 at 6 28 24 PM](https://user-images.githubusercontent.com/44445191/93214767-32022800-f783-11ea-893d-7f45240b6dc5.png)
 
 
-## *Author Name*
-<!--Remove the below lines and add yours -->
-<a href = "https://github.com/utkarshbajaj"> Utkarsh Bajaj </a>
