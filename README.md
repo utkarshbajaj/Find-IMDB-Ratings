@@ -14,8 +14,8 @@ These libraries can be installed easily by using the following command: pip inst
 ### How to run the script
 <!--Remove the below lines and add yours -->
 -> Install the requirements. <br>
--> Inside the find_IMDb_rating.py, update the directory path. <br>
 -> Type the following command: python find_IMDb_rating.py <br>
+-> Enter the directory path in terminal  <br>
 -> A csv file with rating will be created in the same directory as the python file. <br>
 
 ### Screenshot/GIF showing the sample use of the script
