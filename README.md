@@ -6,6 +6,8 @@ Input: -> Path of the directory which contains the films.
 
 Output: -> A new csv file is made - 'film_ratings.csv' which contains the ratings for the films in your directory. 
 
+P.S - Do leave a start if you like it!
+
 ### Prerequisites
 <!--Remove the below lines and add yours -->
 This program uses and external dependency of 'BeautifulSoup' (for web scraping), 'requests' (for fetching content of the webpage), 'pandas' (to make the csv file), 'os' (to get data from directory). <br>
