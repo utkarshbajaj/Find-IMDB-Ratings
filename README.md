@@ -9,7 +9,7 @@ Output: -> A new csv file is made - 'film_ratings.csv' which contains the rating
 P.S - Do leave a star if you like it!
 
 Do a git pull from the master repo before making a new Pull Request using<br>
-`git add remote upstream https://github.com/utkarshbajaj/Find-IMDB-Ratings` <br>
+`git remote add upstream https://github.com/utkarshbajaj/Find-IMDB-Ratings` <br>
 `git fetch upstream`<br>
 `git pull upstream master` 
 
