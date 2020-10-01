@@ -5,7 +5,7 @@ import pandas as pd
 import os
 
 # Setting up session
-s = requests.session()  
+s = requests.session()
 
 # List contaiting all the films for which data has to be scraped from IMDB
 films = []
@@ -20,7 +20,10 @@ genres = []
 path = input("Enter the path where your films are: ")
 
 # Taking the Genre from user 
-genre_user = input("Enter the Genre: ")
+filter = input('Do you want a specific genre?(y/n)?')
+if(filter.lower() == 'y'):
+    genre_user = input("Enter the Genre: ")
+
 
 # Films with extensions
 filmswe = os.listdir(path)
@@ -33,12 +36,14 @@ for film in filmswe:
 for line in films:
     # x = line.split(", ")
     title = line.lower()
+    # Convert all the underscores to whitespaces
+    title = title.replace("_", " ")
     # release = x[1]
-    query = "+".join(title.split()) 
+    query = "+".join(title.split(" "))
     URL = "https://www.imdb.com/search/title/?title=" + query
     # print(URL)
     # print(release)
-    try: 
+    try:
         response = s.get(URL)
 
         #getting contect from IMDB Website
@@ -46,7 +51,7 @@ for line in films:
 
         # print(response.status_code)
 
-        soup = BeautifulSoup(response.content, features="html.parser") 
+        soup = BeautifulSoup(response.content, features="html.parser")
         #searching all films containers found
         containers = soup.find_all("div", class_="lister-item-content")
         for result in containers:
@@ -55,9 +60,8 @@ for line in films:
 
 
             # Extracting the genere
-            genre_list = []
             genre = result.p.find("span", class_="genre")
-            genre_list = list(genre.stripped_strings)[0].split(',')
+           
 
             
             
@@ -75,13 +79,27 @@ for line in films:
        
                 
             if title in name:
-                if genre_user in genre_list:
+                if filter == 'y':
+                    genre_list = []
+                    genre_list = list(genre.stripped_strings)[0].split(',')
+                    if genre_user in genre_list:
+                        #scraping rating
+                        rating = result.find("div",class_="inline-block ratings-imdb-rating")["data-value"]
+                        #scraping genre
+                        # genre = result.p.find("span", class_="genre")
+                        genre = genre.contents[0]
+
+                        #appending name, rating and genre to individual lists
+                        names.append(name1)
+                        ratings.append(rating)
+                        genres.append(genre)
+                else:
                     #scraping rating
                     rating = result.find("div",class_="inline-block ratings-imdb-rating")["data-value"]
                     #scraping genre
                     # genre = result.p.find("span", class_="genre")
                     genre = genre.contents[0]
-
+                        
                     #appending name, rating and genre to individual lists
                     names.append(name1)
                     ratings.append(rating)
@@ -93,7 +111,7 @@ for line in films:
         print("Try again with valid combination of tile and release year")
 
 #storing in pandas dataframe
-df = pd.DataFrame({'Film Name':names,'Rating':ratings,'Genre':genres}) 
+df = pd.DataFrame({'Film Name':names,'Rating':ratings,'Genre':genres})
 
 #making csv using pandas
 df.to_csv('film_ratings.csv', index=False, encoding='utf-8')
