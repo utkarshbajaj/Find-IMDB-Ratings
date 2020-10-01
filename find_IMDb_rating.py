@@ -19,6 +19,9 @@ genres = []
 # For eg: "/Users/utkarsh/Desktop/films"
 path = input("Enter the path where your films are: ")
 
+# Taking the Genre from user 
+genre_user = input("Enter the Genre: ")
+
 # Films with extensions
 filmswe = os.listdir(path)
 
@@ -33,7 +36,7 @@ for line in films:
     # release = x[1]
     query = "+".join(title.split()) 
     URL = "https://www.imdb.com/search/title/?title=" + query
-    print(URL)
+    # print(URL)
     # print(release)
     try: 
         response = s.get(URL)
@@ -50,23 +53,39 @@ for line in films:
             name1 = result.h3.a.text
             name = result.h3.a.text.lower()
 
+
+            # Extracting the genere
+            genre_list = []
+            genre = result.p.find("span", class_="genre")
+            genre_list = list(genre.stripped_strings)[0].split(',')
+
+            
+            
+            
+
             # Uncomment below lines if you want year specific as well, define year variable before this 
             # year = result.h3.find(
             # "span", class_="lister-item-year text-muted unbold"
             # ).text.lower() 
 
             #if film found (searching using name)
+            
+           
+           
+       
+                
             if title in name:
-                #scraping rating
-                rating = result.find("div",class_="inline-block ratings-imdb-rating")["data-value"]
-                #scraping genre
-                genre = result.p.find("span", class_="genre")
-                genre = genre.contents[0]
+                if genre_user in genre_list:
+                    #scraping rating
+                    rating = result.find("div",class_="inline-block ratings-imdb-rating")["data-value"]
+                    #scraping genre
+                    # genre = result.p.find("span", class_="genre")
+                    genre = genre.contents[0]
 
-                #appending name, rating and genre to individual lists
-                names.append(name1)
-                ratings.append(rating)
-                genres.append(genre)
+                    #appending name, rating and genre to individual lists
+                    names.append(name1)
+                    ratings.append(rating)
+                    genres.append(genre)
                 
 
 
