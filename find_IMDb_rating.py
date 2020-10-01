@@ -3,9 +3,10 @@ import requests
 import json
 import pandas as pd
 import os
+import PySimpleGUI as sg
 
 # Setting up session
-s = requests.session()  
+s = requests.session()
 
 # List contaiting all the films for which data has to be scraped from IMDB
 films = []
@@ -15,9 +16,23 @@ names = []
 ratings = []
 genres = []
 
-# Define path where your films are present 
+# Setting GUI
+layout = [
+    [sg.Text("Enter the path where your films are: ")],
+    [sg.InputText()],
+    [sg.Submit(), sg.Cancel()]
+]
+
+window = sg.Window('Find IMDB Rating', layout)
+event, values = window.read()
+window.close()
+
+text_input = values[0]
+sg.popup('Creating report for your films in: ', text_input)
+
+# Define path where your films are present
 # For eg: "/Users/utkarsh/Desktop/films"
-path = input("Enter the path where your films are: ")
+path = values[0]
 
 # Films with extensions
 filmswe = os.listdir(path)
@@ -31,11 +46,11 @@ for line in films:
     # x = line.split(", ")
     title = line.lower()
     # release = x[1]
-    query = "+".join(title.split()) 
+    query = "+".join(title.split())
     URL = "https://www.imdb.com/search/title/?title=" + query
     print(URL)
     # print(release)
-    try: 
+    try:
         response = s.get(URL)
 
         #getting contect from IMDB Website
@@ -43,17 +58,17 @@ for line in films:
 
         # print(response.status_code)
 
-        soup = BeautifulSoup(response.content, features="html.parser") 
+        soup = BeautifulSoup(response.content, features="html.parser")
         #searching all films containers found
         containers = soup.find_all("div", class_="lister-item-content")
         for result in containers:
             name1 = result.h3.a.text
             name = result.h3.a.text.lower()
 
-            # Uncomment below lines if you want year specific as well, define year variable before this 
+            # Uncomment below lines if you want year specific as well, define year variable before this
             # year = result.h3.find(
             # "span", class_="lister-item-year text-muted unbold"
-            # ).text.lower() 
+            # ).text.lower()
 
             #if film found (searching using name)
             if title in name:
@@ -67,14 +82,13 @@ for line in films:
                 names.append(name1)
                 ratings.append(rating)
                 genres.append(genre)
-                
-
 
     except Exception:
         print("Try again with valid combination of tile and release year")
 
 #storing in pandas dataframe
-df = pd.DataFrame({'Film Name':names,'Rating':ratings,'Genre':genres}) 
+df = pd.DataFrame({'Film Name':names,'Rating':ratings,'Genre':genres})
 
-#making csv using pandas
-df.to_csv('film_ratings.csv', index=False, encoding='utf-8')
+#making excel using pandas
+target_path = path + '/film_ratings.csv'
+df.to_csv(target_path, index=False, encoding='utf-8')
