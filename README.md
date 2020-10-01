@@ -8,6 +8,11 @@ Output: -> A new csv file is made - 'film_ratings.csv' which contains the rating
 
 P.S - Do leave a start if you like it!
 
+Do a git pull from the master repo before making a new Pull Request using<br>
+`git add remote upstream https://github.com/utkarshbajaj/Find-IMDB-Ratings` <br>
+`git fetch upstream`<br>
+`git pull upstream master` 
+
 ### Prerequisites
 <!--Remove the below lines and add yours -->
 This program uses and external dependency of 'BeautifulSoup' (for web scraping), 'requests' (for fetching content of the webpage), 'pandas' (to make the csv file), 'os' (to get data from directory). <br>
