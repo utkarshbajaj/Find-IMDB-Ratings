@@ -5,7 +5,7 @@ import pandas as pd
 import os
 
 # Setting up session
-s = requests.session()  
+s = requests.session()
 
 # List contaiting all the films for which data has to be scraped from IMDB
 films = []
@@ -30,12 +30,14 @@ for film in filmswe:
 for line in films:
     # x = line.split(", ")
     title = line.lower()
+    # Convert all the underscores to whitespaces
+    title = title.replace("_", " ")
     # release = x[1]
-    query = "+".join(title.split()) 
+    query = "+".join(title.split(" "))
     URL = "https://www.imdb.com/search/title/?title=" + query
     print(URL)
     # print(release)
-    try: 
+    try:
         response = s.get(URL)
 
         #getting contect from IMDB Website
@@ -43,7 +45,7 @@ for line in films:
 
         # print(response.status_code)
 
-        soup = BeautifulSoup(response.content, features="html.parser") 
+        soup = BeautifulSoup(response.content, features="html.parser")
         #searching all films containers found
         containers = soup.find_all("div", class_="lister-item-content")
         for result in containers:
@@ -67,14 +69,14 @@ for line in films:
                 names.append(name1)
                 ratings.append(rating)
                 genres.append(genre)
-                
+
 
 
     except Exception:
         print("Try again with valid combination of tile and release year")
 
 #storing in pandas dataframe
-df = pd.DataFrame({'Film Name':names,'Rating':ratings,'Genre':genres}) 
+df = pd.DataFrame({'Film Name':names,'Rating':ratings,'Genre':genres})
 
 #making csv using pandas
 df.to_csv('film_ratings.csv', index=False, encoding='utf-8')
