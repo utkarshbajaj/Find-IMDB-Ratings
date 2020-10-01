@@ -41,7 +41,7 @@ for line in films:
     # release = x[1]
     query = "+".join(title.split(" "))
     URL = "https://www.imdb.com/search/title/?title=" + query
-    # print(URL)
+    print(URL)
     # print(release)
     try:
         response = s.get(URL)
