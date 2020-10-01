@@ -6,7 +6,7 @@ Input: -> Path of the directory which contains the films.
 
 Output: -> A new csv file is made - 'film_ratings.csv' which contains the ratings for the films in your directory. 
 
-P.S - Do leave a star if you like it!
+__P.S. - Please ask for assign before making a PR.__
 
 Do a git pull from the master repo before making a new Pull Request using<br>
 `git remote add upstream https://github.com/utkarshbajaj/Find-IMDB-Ratings` <br>
