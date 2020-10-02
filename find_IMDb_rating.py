@@ -78,6 +78,7 @@ def find_movie(directory_path):
 
     #storing in pandas dataframe
     df = pd.DataFrame({'Film Name':names,'Rating':ratings,'Genre':genres})
+    df = df.sort_values("Rating", ascending=False)
 
     #making csv using pandas
     df.to_csv('film_ratings.csv', index=False, encoding='utf-8')
