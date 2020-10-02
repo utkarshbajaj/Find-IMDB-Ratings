@@ -21,17 +21,32 @@ These libraries can be installed easily by using the following command: pip inst
 ### How to run the script
 <!--Remove the below lines and add yours -->
 -> Install the requirements. <br>
--> Type the following command: python find_IMDb_rating.py <br>
--> Enter the directory path in terminal  <br>
+-> Type the following command: python GUI.py <br>
+-> Browse to the path where Films are located inside the folder  <br>
 -> A csv file with rating will be created in the same directory as the python file. <br>
 
-### Screenshot/GIF showing the sample use of the script
+### Sample use of the script
 <!--Remove the below lines and add yours -->
+Script :
+
+![new](https://user-images.githubusercontent.com/44445191/94925225-7fe59280-04dc-11eb-843e-df5dd3ea07f8.gif)
+
 Folder :
 
-![Screenshot 2020-09-15 at 6 20 55 PM](https://user-images.githubusercontent.com/44445191/93214776-375f7280-f783-11ea-90a3-dcd29a84d7fc.png)
+![Screenshot 2020-10-02 at 6 15 22 PM](https://user-images.githubusercontent.com/44445191/94925320-a4da0580-04dc-11eb-85e8-b27962d51d97.png)
 
-CSV File:
-![Screenshot 2020-09-15 at 6 28 24 PM](https://user-images.githubusercontent.com/44445191/93214767-32022800-f783-11ea-893d-7f45240b6dc5.png)
+Result: (Also stored in a csv file)
+
+![Screenshot 2020-10-02 at 6 23 29 PM](https://user-images.githubusercontent.com/44445191/94925387-c2a76a80-04dc-11eb-9ee6-893880c53362.png)
+
+
+## Author
+<a href="https://github.com/utkarshbajaj"> Utkarsh Bajaj </a>
+
+## Contributors 
+<ul> 
+  <li> <a href ="https://github.com/Aravindha1234u"> Avarindha </a> </li>
+  <li> <a href = "https://github.com/Vipul-Bajaj"> Vipul Bajaj </a> </li>
+</ul>
 
 
