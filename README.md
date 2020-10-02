@@ -25,16 +25,20 @@ These libraries can be installed easily by using the following command: pip inst
 -> Browse to the path where Films are located inside the folder  <br>
 -> A csv file with rating will be created in the same directory as the python file. <br>
 
-### Screenshot/GIF showing the sample use of the script
+### Sample use of the script
 <!--Remove the below lines and add yours -->
+Script :
+
+![new](https://user-images.githubusercontent.com/44445191/94925225-7fe59280-04dc-11eb-843e-df5dd3ea07f8.gif)
+
 Folder :
 
-![Screenshot 2020-09-15 at 6 20 55 PM](https://user-images.githubusercontent.com/52521300/94840331-e2378800-0435-11eb-99a0-6629239e4bac.png)
+![Screenshot 2020-10-02 at 6 15 22 PM](https://user-images.githubusercontent.com/44445191/94925320-a4da0580-04dc-11eb-85e8-b27962d51d97.png)
 
-![Screenshot 2020-09-15 at 6 20 55 PM](https://user-images.githubusercontent.com/52521300/94840411-03987400-0436-11eb-9d52-bc76fb2f649b.png)
+Result: (Also stored in a csv file)
 
-CSV File:
-![Screenshot 2020-09-15 at 6 28 24 PM](https://user-images.githubusercontent.com/44445191/93214767-32022800-f783-11ea-893d-7f45240b6dc5.png)
+![Screenshot 2020-10-02 at 6 23 29 PM](https://user-images.githubusercontent.com/44445191/94925387-c2a76a80-04dc-11eb-9ee6-893880c53362.png)
+
 
 ## Author
 <a href="https://github.com/utkarshbajaj"> Utkarsh Bajaj </a>
