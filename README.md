@@ -43,7 +43,7 @@ Result: (Also stored in a csv file)
 ## Author
 <a href="https://github.com/utkarshbajaj"> Utkarsh Bajaj </a>
 
-## Contributers 
+## Contributors 
 <ul> 
   <li> <a href ="https://github.com/Aravindha1234u"> Avarindha </a> </li>
   <li> <a href = "https://github.com/Vipul-Bajaj"> Vipul Bajaj </a> </li>
