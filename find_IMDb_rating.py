@@ -4,6 +4,7 @@ import json
 import pandas as pd
 import os
 
+                        
 def find_movie(directory_path):
     # Setting up session
     s = requests.session()  
@@ -19,6 +20,10 @@ def find_movie(directory_path):
     # Define path where your films are present 
     # For eg: "/Users/utkarsh/Desktop/films"
     path = directory_path
+
+    filter = input('Do you want a specific genre?(y/n)?')
+    if(filter.lower() == 'y'):
+        genre_user = input("Enter the Genre: ")
 
     # Films with extensions
     filmswe = os.listdir(path)
@@ -53,24 +58,33 @@ def find_movie(directory_path):
                 name1 = result.h3.a.text
                 name = result.h3.a.text.lower()
 
+                genre = result.p.find("span", class_="genre")
+
                 # Uncomment below lines if you want year specific as well, define year variable before this 
                 # year = result.h3.find(
                 # "span", class_="lister-item-year text-muted unbold"
                 # ).text.lower() 
+            if title in name:
+                if filter == 'y':
+                    genre_list = []
+                    genre_list = list(genre.stripped_strings)[0].split(',')
+                    if genre_user in genre_list:
+                        #scraping rating
+                        rating = result.find("div",class_="inline-block ratings-imdb-rating")["data-value"]
+                        #scraping genre
+                        # genre = result.p.find("span", class_="genre")
+                        genre = genre.contents[0]
 
-                #if film found (searching using name)
-                if title in name:
+                        #appending name, rating and genre to individual lists
+                        names.append(name1)
+                        ratings.append(rating)
+                        genres.append(genre)
+                else:
                     #scraping rating
                     rating = result.find("div",class_="inline-block ratings-imdb-rating")["data-value"]
                     #scraping genre
-                    genre = result.p.find("span", class_="genre")
-                    genre = genre.contents[0].strip()
-
-                    #appending name, rating and genre to individual lists
-                    names.append(name1)
-                    ratings.append(rating)
-                    genres.append(genre)
-
+                    # genre = result.p.find("span", class_="genre")
+                    genre = genre.contents[0]
 
 
         except Exception:
