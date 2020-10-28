@@ -16,14 +16,14 @@ Do a git pull from the master repo before making a new Pull Request using<br>
 ### Prerequisites
 <!--Remove the below lines and add yours -->
 This program uses and external dependency of 'BeautifulSoup' (for web scraping), 'requests' (for fetching content of the webpage), 'pandas' (to make the csv file), 'os' (to get data from directory). <br>
-These libraries can be installed easily by using the following command: pip install -r requirements.txt
+These libraries can be installed easily by using the following command: `pip install -r requirements.txt`
 
 ### How to run the script
 <!--Remove the below lines and add yours -->
--> Install the requirements. <br>
--> Type the following command: python GUI.py <br>
--> Browse to the path where Films are located inside the folder  <br>
--> A csv file with rating will be created in the same directory as the python file. <br>
+1. Install the requirements using the `pip install -r requirements.txt` command. <br>
+2. Type the following command: `python GUI.py` <br>
+3. Browse to the path where Films are located inside the folder  <br>
+4. A csv file with rating will be created in the same directory as the python file. <br>
 
 ### Sample use of the script
 <!--Remove the below lines and add yours -->
