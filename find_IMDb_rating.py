@@ -4,6 +4,27 @@ import pandas as pd
 import os
 
 
+def get_online_platforms(move_name):
+    SEARCH_URL = f'https://www.imdb.com/find?q={move_name}'
+
+    session = requests.session()
+    response = session.get(SEARCH_URL)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    first_movie_url = soup.find('td', attrs={'class': 'result_text'}).find('a').get('href')
+    # with open('test.html', 'w+') as f: f.write(soup.__str__())
+    movie_id = first_movie_url.split('/')[-2]
+
+    PLATFORMS_URL = f"https://www.imdb.com/watch/_ajax/box/{movie_id}"
+
+    response = session.get(PLATFORMS_URL)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    all_platforms = [div.text for div in soup.find_all('div', attrs={'class': 'watchoption-modal__provider'})]
+
+    return all_platforms
+
+
 def find_movie(directory_path):
     # Setting up session
     s = requests.session()
@@ -46,7 +67,7 @@ def find_movie(directory_path):
 
             # print(response.status_code)
 
-            soup = BeautifulSoup(response.content, features="html.parser")
+            soup = BeautifulSoup(content, features="html.parser")
             # searching all films containers found
             containers = soup.find_all("div", class_="lister-item-content")
             for result in containers:
