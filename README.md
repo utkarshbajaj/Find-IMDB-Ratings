@@ -1,10 +1,12 @@
 # Find IMDB Ratings 
 <!--Remove the below lines and add yours -->
-This script is used to fetch the Ratings and Genre of the films in your films folder that match with ones on IMDb, the data is scraped from IMDB's official website and store in a csv file. The csv file can be used for analysis then, sorting acc to rating etc. 
+This script is used to fetch the Ratings, genre and the platforms available to stream of the films in your films folder that match with ones on IMDb.
+
+The data is scraped from IMDB's official website and store in a CSV file. The csv file can be used for analysis then, sorting acc to rating etc. 
 
 Input: -> Path of the directory which contains the films. 
 
-Output: -> A new csv file is made - 'film_ratings.csv' which contains the ratings for the films in your directory. 
+Output: -> A new csv file - 'film_ratings.csv' - which contains the ratings for the films in your directory. 
 
 __P.S. - Please ask for assign before making a PR.__<br>Creation of new issues is encouraged. 
 
