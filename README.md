@@ -41,12 +41,8 @@ Result: (Also stored in a csv file)
 
 
 ## Author
-<a href="https://github.com/utkarshbajaj"> Utkarsh Bajaj </a>
+[Utkarsh Bajaj](https://github.com/utkarshbajaj)
 
 ## Contributors 
-<ul> 
-  <li> <a href ="https://github.com/Aravindha1234u"> Avarindha </a> </li>
-  <li> <a href = "https://github.com/Vipul-Bajaj"> Vipul Bajaj </a> </li>
-</ul>
-
-
+* [Avarindha](https://github.com/Aravindha1234u)
+* [Vipul Bajaj](https://github.com/Vipul-Bajaj)
