@@ -1,10 +1,12 @@
 # Find IMDB Ratings 
 <!--Remove the below lines and add yours -->
-This script is used to fetch the Ratings and Genre of the films in your films folder that match with ones on IMDb, the data is scraped from IMDB's official website and store in a csv file. The csv file can be used for analysis then, sorting acc to rating etc. 
+This script is used to fetch the Ratings, genre and the platforms available to stream of the films in your films folder that match with ones on IMDb.
+
+The data is scraped from IMDB's official website and store in a CSV file. The csv file can be used for analysis then, sorting acc to rating etc. 
 
 Input: -> Path of the directory which contains the films. 
 
-Output: -> A new csv file is made - 'film_ratings.csv' which contains the ratings for the films in your directory. 
+Output: -> A new csv file - 'film_ratings.csv' - which contains the ratings for the films in your directory. 
 
 __P.S. - Please ask for assign before making a PR.__<br>Creation of new issues is encouraged. 
 
@@ -16,14 +18,14 @@ Do a git pull from the master repo before making a new Pull Request using<br>
 ### Prerequisites
 <!--Remove the below lines and add yours -->
 This program uses and external dependency of 'BeautifulSoup' (for web scraping), 'requests' (for fetching content of the webpage), 'pandas' (to make the csv file), 'os' (to get data from directory). <br>
-These libraries can be installed easily by using the following command: pip install -r requirements.txt
+These libraries can be installed easily by using the following command: `pip install -r requirements.txt`
 
 ### How to run the script
 <!--Remove the below lines and add yours -->
--> Install the requirements. <br>
--> Type the following command: python GUI.py <br>
--> Browse to the path where Films are located inside the folder  <br>
--> A csv file with rating will be created in the same directory as the python file. <br>
+1. Install the requirements using the `pip install -r requirements.txt` command. <br>
+2. Type the following command: `python GUI.py` <br>
+3. Browse to the path where Films are located inside the folder  <br>
+4. A csv file with rating will be created in the same directory as the python file. <br>
 
 ### Sample use of the script
 <!--Remove the below lines and add yours -->
@@ -41,12 +43,8 @@ Result: (Also stored in a csv file)
 
 
 ## Author
-<a href="https://github.com/utkarshbajaj"> Utkarsh Bajaj </a>
+[Utkarsh Bajaj](https://github.com/utkarshbajaj)
 
 ## Contributors 
-<ul> 
-  <li> <a href ="https://github.com/Aravindha1234u"> Avarindha </a> </li>
-  <li> <a href = "https://github.com/Vipul-Bajaj"> Vipul Bajaj </a> </li>
-</ul>
-
-
+* [Avarindha](https://github.com/Aravindha1234u)
+* [Vipul Bajaj](https://github.com/Vipul-Bajaj)
