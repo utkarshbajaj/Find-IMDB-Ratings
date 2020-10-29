@@ -22,7 +22,7 @@ def get_online_platforms(move_name):
 
     all_platforms = [div.text for div in soup.find_all('div', attrs={'class': 'watchoption-modal__provider'})]
 
-    return all_platforms
+    return all_platforms if len(all_platforms) > 0 else ["None"]
 
 
 def find_movie(directory_path):
@@ -36,6 +36,7 @@ def find_movie(directory_path):
     names = []
     ratings = []
     genres = []
+    platforms = []
 
     # Define path where your films are present
     # For eg: "/Users/utkarsh/Desktop/films"
@@ -92,15 +93,17 @@ def find_movie(directory_path):
                     names.append(name1)
                     ratings.append(rating)
                     genres.append(genre)
+                    platforms.append(", ".join(get_online_platforms(name1)))
 
         except Exception:
             print("Try again with valid combination of tile and release year")
 
     # storing in pandas dataframe
-    df = pd.DataFrame({'Film Name': names, 'Rating': ratings, 'Genre': genres})
+    df = pd.DataFrame({'Film Name': names, 'Rating': ratings, 'Genre': genres,
+                       "Platforms": platforms})
     df = df.sort_values("Rating", ascending=False)
 
     # making csv using pandas
     df.to_csv('film_ratings.csv', index=False, encoding='utf-8')
 
-    return (names, ratings, genres)
+    return (names, ratings, genres, platforms)
